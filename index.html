@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitrin Medya | Web ve Dijital Tasarım Ajansı</title>
+<meta name="description" content="Vitrin Medya; web sitesi tasarımı, UI/UX, sosyal medya tasarımı ve dijital içerik üreten yaratıcı bir tasarım ajansıdır. Markanızı dijital vitrine taşıyoruz.">
+<meta name="theme-color" content="#F4EDDA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Vitrin Medya">
+<meta property="og:title" content="Vitrin Medya | Markanızı dijital vitrine taşıyoruz">
+<meta property="og:description" content="Web sitesi tasarımı, UI/UX, sosyal medya tasarımı ve dijital içerik. Markanız için göz alıcı bir dijital vitrin.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E1E1E'/%3E%3Cpath d='M16 18h8l8 22 8-22h8L36 48h-8z' fill='%23FF9B10'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turuncu:#FF9B10;
+  --turuncu-koyu:#E07F00;
+  --krem:#F4EDDA;
+  --krem-2:#EFE5CC;
+  --kahve:#A46042;
+  --kahve-koyu:#7A4530;
+  --siyah:#000000;
+  --antrasit:#1E1E1E;
+  --antrasit-2:#2A2A2A;
+  --beyaz:#FFFFFF;
+  --metin:#1E1E1E;
+  --metin-soluk:#5A4A40;
+  --radius:22px;
+  --gutter:clamp(16px,4vw,48px);
+  --max:1200px;
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+body{margin:0;background:var(--krem);color:var(--metin);font-family:var(--font-body);font-size:1.0625rem;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.05;margin:0;letter-spacing:-.02em}
+p{margin:0}
+::selection{background:var(--turuncu);color:var(--siyah)}
+:focus-visible{outline:3px solid var(--turuncu);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:12px;z-index:200;background:var(--antrasit);color:var(--beyaz);padding:10px 16px;border-radius:10px}
+.skip:focus{left:16px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* progress bar */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:120;background:linear-gradient(90deg,var(--turuncu),var(--kahve));transform-origin:0 50%;transform:scaleX(0)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);padding:18px 0}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(244,237,218,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(164,96,66,.18);opacity:0;transition:opacity .4s var(--ease)}
+.nav.scrolled{padding:10px 0}
+.nav.scrolled::before{opacity:1}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.03em;color:var(--antrasit)}
+.logo-mark{width:38px;height:38px;border-radius:11px;background:var(--antrasit);display:grid;place-items:center;flex:none;position:relative;overflow:hidden}
+.logo-mark::after{content:"";position:absolute;inset:auto -6px -6px auto;width:18px;height:18px;border-radius:50%;background:var(--kahve);opacity:.6}
+.logo-mark svg{width:22px;height:22px;position:relative;z-index:1}
+.logo b{color:var(--kahve);font-weight:700}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 14px;border-radius:999px;transition:background .25s,color .25s}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,155,16,.18)}
+.nav-cta{margin-left:6px}
+.burger{display:none;width:46px;height:46px;border-radius:14px;border:0;background:var(--antrasit);position:relative}
+.burger span{position:absolute;left:13px;right:13px;height:2px;background:var(--beyaz);border-radius:2px;transition:transform .35s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:700;border-radius:999px;padding:15px 26px;border:2px solid transparent;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s,color .3s;white-space:nowrap;font-size:1rem}
+.btn svg{width:18px;height:18px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--turuncu);color:var(--siyah);box-shadow:0 10px 28px -10px rgba(224,127,0,.7),inset 0 -3px 0 rgba(164,96,66,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px -12px rgba(224,127,0,.85),inset 0 -3px 0 rgba(164,96,66,.35)}
+.btn-ghost{border-color:var(--antrasit);color:var(--antrasit);background:transparent}
+.btn-ghost:hover{background:var(--antrasit);color:var(--beyaz);transform:translateY(-3px)}
+.btn-sm{padding:10px 18px;font-size:.92rem}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden;isolation:isolate}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:-1;will-change:transform}
+.blob.b1{width:520px;height:520px;background:radial-gradient(circle at 30% 30%,var(--turuncu),rgba(255,155,16,0) 70%);top:-120px;right:-80px;opacity:.75;animation:float1 14s ease-in-out infinite}
+.blob.b2{width:440px;height:440px;background:radial-gradient(circle at 50% 50%,var(--kahve),rgba(164,96,66,0) 70%);bottom:-140px;left:-120px;opacity:.5;animation:float2 17s ease-in-out infinite}
+.blob.b3{width:260px;height:260px;background:radial-gradient(circle,#FFC266,rgba(255,194,102,0) 70%);top:40%;left:45%;opacity:.55;animation:float1 11s ease-in-out infinite reverse}
+@keyframes float1{0%,100%{translate:0 0}50%{translate:-40px 50px}}
+@keyframes float2{0%,100%{translate:0 0}50%{translate:60px -40px}}
+.grain{position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(164,96,66,.25) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--kahve-koyu);background:rgba(255,255,255,.65);border:1px solid rgba(164,96,66,.25);padding:8px 14px;border-radius:999px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--turuncu);box-shadow:0 0 0 4px rgba(255,155,16,.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(255,155,16,.25)}50%{box-shadow:0 0 0 9px rgba(255,155,16,0)}}
+.hero h1{font-size:clamp(2.7rem,7vw,6.2rem);letter-spacing:-.045em;font-weight:700;margin:26px 0 24px;line-height:.98}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .line>span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+.hero h1 .line:nth-child(2)>span{animation-delay:.12s}
+.hero h1 .line:nth-child(3)>span{animation-delay:.24s}
+@keyframes rise{to{transform:translateY(0)}}
+.hl{position:relative;white-space:nowrap;color:var(--antrasit)}
+.hl::before{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.08em;height:.38em;background:var(--turuncu);z-index:-1;border-radius:6px;transform:scaleX(0);transform-origin:left;animation:mark .9s .9s var(--ease) forwards}
+@keyframes mark{to{transform:scaleX(1)}}
+.hero-sub{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:540px;color:var(--metin-soluk);opacity:0;animation:fadeUp .9s .5s var(--ease) forwards}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;opacity:0;animation:fadeUp .9s .65s var(--ease) forwards}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:40px;font-size:.92rem;font-weight:600;color:var(--metin-soluk);opacity:0;animation:fadeUp .9s .8s var(--ease) forwards}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta svg{width:18px;height:18px;color:var(--kahve)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* hero visual: shop window */
+.showcase{position:relative;aspect-ratio:4/5;max-width:460px;width:100%;justify-self:end;opacity:0;animation:fadeUp 1.1s .4s var(--ease) forwards}
+.window{position:absolute;inset:0;border-radius:28px;background:var(--antrasit);padding:16px;box-shadow:0 40px 80px -30px rgba(122,69,48,.6);transform:rotate(-3deg)}
+.window-bar{display:flex;gap:7px;padding:4px 4px 14px}
+.window-bar i{width:11px;height:11px;border-radius:50%;background:#555}
+.window-bar i:first-child{background:var(--turuncu)}
+.window-screen{position:relative;height:calc(100% - 30px);border-radius:16px;background:var(--krem);overflow:hidden;padding:18px;display:grid;grid-template-rows:auto 1fr auto;gap:14px}
+.ws-nav{display:flex;justify-content:space-between;align-items:center}
+.ws-nav b{width:70px;height:12px;border-radius:6px;background:var(--antrasit)}
+.ws-nav span{display:flex;gap:6px}
+.ws-nav span i{width:26px;height:8px;border-radius:4px;background:rgba(164,96,66,.35)}
+.ws-hero{border-radius:14px;background:linear-gradient(135deg,var(--turuncu),var(--kahve));position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.ws-hero::before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;border:22px solid rgba(255,255,255,.25);top:-40px;right:-40px;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ws-hero i{display:block;height:12px;border-radius:6px;background:rgba(255,255,255,.9)}
+.ws-hero i:nth-child(1){width:75%;height:18px}
+.ws-hero i:nth-child(2){width:50%}
+.ws-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ws-cards i{aspect-ratio:1;border-radius:10px;background:var(--beyaz);box-shadow:0 4px 10px rgba(122,69,48,.12)}
+.ws-cards i:nth-child(2){background:var(--antrasit)}
+.chip{position:absolute;background:var(--beyaz);border-radius:16px;padding:12px 16px;box-shadow:0 18px 40px -16px rgba(30,30,30,.4);display:flex;align-items:center;gap:10px;font-weight:700;font-size:.9rem;will-change:transform}
+.chip .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--turuncu);color:var(--siyah)}
+.chip .ic svg{width:18px;height:18px}
+.chip small{display:block;font-weight:600;color:var(--metin-soluk);font-size:.75rem}
+.chip.c1{top:12%;left:-14%;animation:bob 6s ease-in-out infinite}
+.chip.c2{bottom:10%;right:-10%;animation:bob 7s 1s ease-in-out infinite}
+.chip.c2 .ic{background:var(--antrasit);color:var(--turuncu)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:26px;height:42px;border:2px solid var(--antrasit);border-radius:14px;opacity:.5}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--antrasit);animation:wheel 1.8s infinite}
+@keyframes wheel{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(12px)}}
+
+/* marquee band */
+.band{background:var(--antrasit);color:var(--krem);overflow:hidden;padding:20px 0;transform:rotate(-1.2deg);margin:-10px -20px 0;position:relative;z-index:2}
+.band-track{display:flex;gap:48px;width:max-content;animation:marquee 32s linear infinite;font-family:var(--font-display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.8rem);white-space:nowrap}
+.band-track span{display:inline-flex;align-items:center;gap:48px}
+.band-track span::after{content:"✦";color:var(--turuncu)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,140px) 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kahve-koyu);margin-bottom:16px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--turuncu)}
+.sec-title{font-size:clamp(2.1rem,5vw,3.8rem);font-weight:700;max-width:720px}
+.sec-title em{font-style:normal;color:var(--kahve)}
+.sec-lead{max-width:420px;color:var(--metin-soluk)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.svc{grid-column:span 2}
+.svc:nth-child(4),.svc:nth-child(5){grid-column:span 3}
+.svc{position:relative;background:var(--beyaz);border-radius:var(--radius);padding:30px 26px 28px;border:1px solid rgba(164,96,66,.14);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s;transform-style:preserve-3d;overflow:hidden}
+.svc::before{content:"";position:absolute;inset:auto -40% -60% auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,155,16,.35),transparent 70%);opacity:0;transition:opacity .4s}
+.svc:hover{box-shadow:0 30px 60px -28px rgba(122,69,48,.55);border-color:rgba(255,155,16,.6)}
+.svc:hover::before{opacity:1}
+.svc-num{position:absolute;top:22px;right:24px;font-family:var(--font-display);font-weight:700;color:rgba(164,96,66,.4);font-size:.95rem}
+.svc-icon{width:62px;height:62px;border-radius:18px;background:var(--krem);display:grid;place-items:center;margin-bottom:26px;transition:background .35s,transform .45s var(--ease)}
+.svc-icon svg{width:30px;height:30px;color:var(--kahve)}
+.svc:hover .svc-icon{background:var(--turuncu);transform:rotate(-8deg) scale(1.06)}
+.svc:hover .svc-icon svg{color:var(--siyah)}
+.svc h3{font-size:1.38rem;margin-bottom:12px}
+.svc p{color:var(--metin-soluk);font-size:.98rem}
+.svc ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.svc li{font-size:.78rem;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--krem);color:var(--kahve-koyu)}
+.svc.featured{background:var(--antrasit);color:var(--krem);border-color:var(--antrasit)}
+.svc.featured p{color:#CFC6B4}
+.svc.featured .svc-icon{background:var(--antrasit-2)}
+.svc.featured .svc-icon svg{color:var(--turuncu)}
+.svc.featured li{background:var(--antrasit-2);color:var(--krem)}
+.svc.featured .svc-num{color:rgba(255,155,16,.6)}
+
+/* ABOUT */
+.about{background:var(--antrasit);color:var(--krem);border-radius:clamp(28px,4vw,48px);margin:0 clamp(8px,1.5vw,20px);overflow:hidden}
+.about .kicker{color:var(--turuncu)}
+.about .sec-title em{color:var(--turuncu)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-text p{color:#D8CFBD;margin-bottom:18px;font-size:1.06rem}
+.about-text p strong{color:var(--beyaz)}
+.values{display:grid;gap:14px;margin-top:30px}
+.value{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:18px;background:var(--antrasit-2);border:1px solid rgba(255,255,255,.06);transition:border-color .3s,transform .4s var(--ease)}
+.value:hover{border-color:rgba(255,155,16,.5);transform:translateX(6px)}
+.value .vi{flex:none;width:42px;height:42px;border-radius:12px;background:rgba(255,155,16,.14);display:grid;place-items:center;color:var(--turuncu)}
+.value .vi svg{width:22px;height:22px}
+.value h4{font-size:1.08rem;margin-bottom:4px;color:var(--beyaz)}
+.value p{font-size:.95rem;color:#BFB6A4}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.stat{background:var(--antrasit-2);border-radius:22px;padding:30px 26px;border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
+.stat:first-child{background:var(--turuncu);color:var(--siyah);grid-column:span 2}
+.stat:first-child .stat-label{color:#3A2416}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,5vw,4rem);line-height:1;display:flex;align-items:baseline;gap:4px}
+.stat-num sup{font-size:.5em;color:var(--turuncu)}
+.stat:first-child .stat-num sup{color:var(--kahve-koyu)}
+.stat-label{margin-top:10px;font-weight:600;color:#BFB6A4;font-size:.95rem}
+.stat svg.deco{position:absolute;right:-20px;bottom:-20px;width:140px;height:140px;opacity:.18}
+
+/* GALLERY */
+.filters{display:flex;flex-wrap:wrap;gap:8px;background:var(--beyaz);padding:6px;border-radius:999px;border:1px solid rgba(164,96,66,.18)}
+.filters button{border:0;background:transparent;padding:10px 18px;border-radius:999px;font-weight:700;font-size:.92rem;color:var(--metin-soluk);transition:background .3s,color .3s}
+.filters button:hover{color:var(--antrasit)}
+.filters button[aria-pressed="true"]{background:var(--antrasit);color:var(--beyaz)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gallery.filtered .tile.wide{grid-column:auto;aspect-ratio:4/3.4}
+.tile{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3.4;cursor:pointer;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.tile.wide{grid-column:span 2;aspect-ratio:auto}
+.tile.hide{display:none}
+.tile.fade{opacity:0;transform:scale(.94)}
+.tile-art{position:absolute;inset:0;transition:transform .8s var(--ease)}
+.tile:hover .tile-art,.tile:focus-visible .tile-art{transform:scale(1.06)}
+.tile-over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.1) 55%,transparent);color:var(--beyaz);opacity:0;transition:opacity .45s var(--ease)}
+.tile-over h3{font-size:1.4rem;transform:translateY(16px);transition:transform .5s var(--ease)}
+.tile-over span{font-size:.85rem;font-weight:700;color:var(--turuncu);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;transform:translateY(16px);transition:transform .5s .05s var(--ease)}
+.tile:hover .tile-over,.tile:focus-visible .tile-over,.tile:focus-within .tile-over{opacity:1}
+.tile:hover .tile-over h3,.tile:hover .tile-over span,.tile:focus-visible .tile-over h3,.tile:focus-visible .tile-over span{transform:none}
+.tile-tag{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);color:var(--antrasit);font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:999px;z-index:2}
+/* art: browser mock */
+.mock{position:absolute;inset:14% 10% -6% 10%;background:var(--beyaz);border-radius:14px 14px 0 0;box-shadow:0 24px 50px -20px rgba(0,0,0,.45);overflow:hidden}
+.mock-bar{height:24px;background:#EDE6D4;display:flex;align-items:center;gap:5px;padding:0 10px}
+.mock-bar i{width:7px;height:7px;border-radius:50%;background:#C9BBA0}
+.mock-bar i:first-child{background:var(--turuncu)}
+.mock-body{padding:14px;display:grid;gap:9px}
+.mock-body .r{height:9px;border-radius:5px;background:#E8DFCB}
+.mock-body .big{height:70px;border-radius:10px}
+.phone{position:absolute;width:30%;aspect-ratio:9/18;background:var(--antrasit);border-radius:22px;padding:7px;box-shadow:0 24px 50px -20px rgba(0,0,0,.55)}
+.phone-in{width:100%;height:100%;border-radius:16px;overflow:hidden;display:grid;gap:6px;padding:10px 8px;align-content:start}
+.phone-in i{display:block;border-radius:6px}
+.post{position:absolute;aspect-ratio:1;border-radius:14px;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);overflow:hidden;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;text-align:center;line-height:1}
+
+/* TESTIMONIALS */
+.testi{background:var(--krem-2)}
+.slider{position:relative;max-width:900px;margin:0 auto}
+.slides{position:relative;min-height:330px}
+.slide{position:absolute;inset:0;margin:0;background:var(--beyaz);border-radius:30px;padding:clamp(28px,5vw,56px);border:1px solid rgba(164,96,66,.16);box-shadow:0 30px 60px -36px rgba(122,69,48,.5);opacity:0;transform:translateX(40px) scale(.98);transition:opacity .7s var(--ease),transform .7s var(--ease);visibility:hidden}
+.slide.active{opacity:1;transform:none;visibility:visible}
+.slide.leaving{opacity:0;transform:translateX(-40px) scale(.98)}
+.quote-ic{width:54px;height:54px;color:var(--turuncu);margin-bottom:18px}
+.slide blockquote{margin:0;font-family:var(--font-display);font-weight:600;font-size:clamp(1.2rem,2.4vw,1.75rem);line-height:1.35;letter-spacing:-.01em}
+.who{display:flex;align-items:center;gap:14px;margin-top:28px}
+.avatar{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;color:var(--siyah);background:linear-gradient(135deg,var(--turuncu),#FFC266);flex:none}
+.who b{display:block;font-size:1.02rem}
+.who small{color:var(--metin-soluk);font-weight:600}
+.stars{display:flex;gap:3px;margin-left:auto;color:var(--turuncu)}
+.stars svg{width:18px;height:18px}
+.slider-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:30px}
+.arrow{width:50px;height:50px;border-radius:50%;border:2px solid var(--antrasit);background:transparent;display:grid;place-items:center;transition:background .3s,color .3s}
+.arrow:hover{background:var(--antrasit);color:var(--beyaz)}
+.arrow svg{width:20px;height:20px}
+.dots{display:flex;gap:8px}
+.dots button{width:12px;height:12px;border-radius:999px;border:0;background:rgba(164,96,66,.35);padding:0;transition:width .4s var(--ease),background .3s}
+.dots button[aria-selected="true"]{width:34px;background:var(--turuncu)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ccard{display:flex;flex-direction:column;gap:14px;text-decoration:none;background:var(--beyaz);border-radius:20px;padding:22px;border:1px solid rgba(164,96,66,.16);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s;min-width:0}
+.ccard:hover{transform:translateY(-6px);box-shadow:0 24px 46px -26px rgba(122,69,48,.6);border-color:var(--turuncu)}
+.ccard .ci{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--krem);color:var(--kahve);transition:background .3s,color .3s}
+.ccard:hover .ci{background:var(--turuncu);color:var(--siyah)}
+.ccard .ci svg{width:22px;height:22px}
+.ccard small{font-weight:700;color:var(--metin-soluk);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+.ccard b{font-size:1rem;overflow-wrap:anywhere;line-height:1.35}
+.contact-note{margin-top:22px;padding:22px;border-radius:20px;background:var(--antrasit);color:var(--krem);display:flex;gap:14px;align-items:center}
+.contact-note svg{width:28px;height:28px;color:var(--turuncu);flex:none}
+.contact-note p{font-size:.98rem}
+form.cform{background:var(--beyaz);border-radius:28px;padding:clamp(24px,4vw,40px);border:1px solid rgba(164,96,66,.16);box-shadow:0 30px 70px -40px rgba(122,69,48,.55)}
+.cform h3{font-size:1.6rem;margin-bottom:6px}
+.cform > p{color:var(--metin-soluk);margin-bottom:24px;font-size:.98rem}
+.field{position:relative;margin-bottom:16px}
+.field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;font:inherit;font-size:1rem;color:var(--metin);background:var(--krem);border:2px solid transparent;border-radius:14px;padding:14px 16px;transition:border-color .25s,background .25s;appearance:none}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--turuncu);background:var(--beyaz)}
+.field .err{display:none;color:#9A2E12;font-size:.84rem;font-weight:600;margin-top:6px}
+.field.invalid input,.field.invalid textarea{border-color:#C2410C}
+.field.invalid .err{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform .btn{width:100%;margin-top:6px}
+.form-status{margin-top:14px;font-size:.92rem;font-weight:600;color:var(--kahve-koyu);min-height:1.4em}
+
+/* FOOTER */
+footer{background:var(--siyah);color:var(--krem);padding:80px 0 32px;margin-top:0;position:relative;overflow:hidden}
+.foot-big{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,11.5vw,10.5rem);line-height:.9;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,155,16,.45);white-space:nowrap;margin-bottom:56px;user-select:none}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo{color:var(--krem)}
+footer .logo-mark{background:var(--antrasit-2)}
+footer .logo b{color:var(--turuncu)}
+.foot-grid p{color:#B8AF9E;margin-top:16px;max-width:340px;font-size:.98rem}
+.foot-grid h4{font-size:1rem;margin-bottom:16px;color:var(--turuncu)}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot-grid ul a{text-decoration:none;color:#D8CFBD;transition:color .25s}
+.foot-grid ul a:hover{color:var(--turuncu)}
+.socials{display:flex;gap:10px;margin-top:22px}
+.socials a{width:44px;height:44px;border-radius:12px;background:var(--antrasit-2);display:grid;place-items:center;color:var(--krem);transition:background .3s,color .3s,transform .3s var(--ease)}
+.socials a:hover{background:var(--turuncu);color:var(--siyah);transform:translateY(-3px)}
+.socials svg{width:20px;height:20px}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:26px;font-size:.88rem;color:#8F877A}
+.to-top{color:#D8CFBD;text-decoration:none;font-weight:600}
+.to-top:hover{color:var(--turuncu)}
+
+/* floating whatsapp */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:90;width:58px;height:58px;border-radius:50%;background:var(--turuncu);color:var(--siyah);display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(224,127,0,.8);transition:transform .35s var(--ease),opacity .35s;opacity:0;transform:translateY(20px) scale(.8);pointer-events:none}
+.wa-float.show{opacity:1;transform:none;pointer-events:auto}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px}
+
+/* custom cursor */
+.cursor,.cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:300;border-radius:50%;display:none}
+.cursor{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--kahve);transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),background .3s,border-color .3s}
+.cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--turuncu)}
+.cursor.hover{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(255,155,16,.18);border-color:var(--turuncu)}
+@media (hover:hover) and (pointer:fine){
+  .has-cursor.cursor-on .cursor,.has-cursor.cursor-on .cursor-dot{display:block}
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:64px}
+  .showcase{justify-self:center;max-width:380px}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .contact-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery .tile.wide{grid-column:auto;aspect-ratio:4/3.4}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .svc,.svc:nth-child(4),.svc:nth-child(5){grid-column:auto}
+  .svc:nth-child(5){grid-column:span 2}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > div:first-child{grid-column:span 2}
+}
+@media (max-width:860px){
+  .burger{display:block}
+  .nav-links{position:fixed;top:0;right:0;bottom:0;width:min(86vw,360px);flex-direction:column;align-items:stretch;gap:4px;padding:96px 24px 32px;background:var(--antrasit);clip-path:inset(0 0 0 100%);transition:clip-path .5s var(--ease),visibility .5s;visibility:hidden;box-shadow:-30px 0 60px rgba(0,0,0,.3)}
+  .nav-links.open{clip-path:inset(0 0 0 0);visibility:visible}
+  .nav-links a{color:var(--krem);font-size:1.25rem;font-family:var(--font-display);padding:14px 16px;border-radius:14px}
+  .nav-links a:hover,.nav-links a.active{background:var(--antrasit-2);color:var(--turuncu)}
+  .nav-cta{margin:16px 0 0}
+  .nav-links .btn-primary{color:var(--siyah)}
+  .nav-links .btn-primary:hover{background:var(--turuncu);color:var(--siyah)}
+  .burger{z-index:2}
+  .nav-open .burger{background:var(--turuncu)}
+  .nav-open .burger span{background:var(--siyah)}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:-1}
+  .nav-open .scrim{opacity:1;visibility:visible}
+}
+@media (max-width:640px){
+  body{font-size:1rem}
+  .wrap{padding:0 16px}
+  .hero{padding:110px 0 80px}
+  .hero-ctas .btn{flex:1 1 auto}
+  .chip.c1{left:-4%;top:6%}
+  .chip.c2{right:-4%}
+  .gallery{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .svc:nth-child(5){grid-column:auto}
+  .tile.wide{grid-column:auto;aspect-ratio:4/3.4}
+  .cards{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr;gap:0}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{padding:22px 18px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-grid > div:first-child{grid-column:auto}
+  .filters{border-radius:20px;width:100%}
+  .filters button{flex:1 1 auto;padding:10px 12px}
+  .slides{min-height:420px}
+  .stars{display:none}
+  .sec-head{margin-bottom:40px}
+  .about{margin:0 8px}
+  .scroll-hint{display:none}
+  footer{padding-bottom:96px}
+  .wa-float{right:16px;bottom:16px}
+  .slides{min-height:380px}
+}
+@media (max-width:380px){
+  .hero h1{font-size:2.35rem}
+  .slides{min-height:460px}
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important}
+  .reveal{opacity:1;transform:none}
+  .band-track{animation:none}
+  .blob{animation:none}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">İçeriğe geç</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div><div class="cursor-dot" aria-hidden="true"></div>
+
+<!-- Inline SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 7 9 6 9-6"/></g></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.5 2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2l-5.9 3.3 1.3-6.6-4.9-4.5 6.6-.8z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Vitrin Medya ana sayfa">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h3.4L12 16.2 16.6 5H20l-6.5 15h-3z" fill="#FF9B10"/></svg></span>
+      <span>Vitrin<b>Medya</b></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hizmetler">Hizmetler</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#portfoy">Portföy</a></li>
+        <li><a href="#yorumlar">Yorumlar</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+        <li class="nav-cta"><a href="#iletisim" class="btn btn-primary btn-sm">Proje Başlat</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+  <div class="scrim" id="scrim" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="blob b1" data-depth="30" aria-hidden="true"></div>
+  <div class="blob b2" data-depth="-24" aria-hidden="true"></div>
+  <div class="blob b3" data-depth="45" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Web &amp; Dijital Tasarım Ajansı</span>
+      <h1 id="hero-title">
+        <span class="line"><span>Markanızı</span></span>
+        <span class="line"><span><span class="hl">dijital vitrine</span></span></span>
+        <span class="line"><span>taşıyoruz.</span></span>
+      </h1>
+      <p class="hero-sub">Web sitesi tasarımından sosyal medya içeriğine kadar; markanızı ilk bakışta fark edilen, akılda kalan ve satış getiren bir dijital vitrine dönüştürüyoruz.</p>
+      <div class="hero-ctas">
+        <a href="#iletisim" class="btn btn-primary">Proje Başlat <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#portfoy" class="btn btn-ghost">Çalışmalarımız</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>Mobil uyumlu tasarım</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>Hızlı teslim</span>
+        <span><svg aria-hidden="true"><use href="#i-check"/></svg>Marka odaklı yaklaşım</span>
+      </div>
+    </div>
+    <div class="showcase" aria-hidden="true">
+      <div class="window" data-depth="14">
+        <div class="window-bar"><i></i><i></i><i></i></div>
+        <div class="window-screen">
+          <div class="ws-nav"><b></b><span><i></i><i></i><i></i></span></div>
+          <div class="ws-hero"><i></i><i></i></div>
+          <div class="ws-cards"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="chip c1" data-depth="-26"><span class="ic"><svg><use href="#i-star"/></svg></span><span>UI/UX<small>Kullanıcı odaklı</small></span></div>
+      <div class="chip c2" data-depth="34"><span class="ic"><svg><use href="#i-ig"/></svg></span><span>Sosyal Medya<small>Göz alıcı içerik</small></span></div>
+    </div>
+  </div>
+  <a href="#hizmetler" class="scroll-hint" aria-label="Aşağı kaydır"></a>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span>Web Sitesi Tasarımı</span><span>UI/UX Tasarım</span><span>Sosyal Medya</span><span>Dijital Marka</span><span>E-ticaret Vitrini</span><span>İçerik Üretimi</span>
+    <span>Web Sitesi Tasarımı</span><span>UI/UX Tasarım</span><span>Sosyal Medya</span><span>Dijital Marka</span><span>E-ticaret Vitrini</span><span>İçerik Üretimi</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec" id="hizmetler" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker">Hizmetlerimiz</span>
+        <h2 class="sec-title" id="svc-title">Vitrininizi baştan sona <em>biz tasarlıyoruz.</em></h2>
+      </div>
+      <p class="sec-lead reveal" style="--d:.1s">Strateji, tasarım ve içerik tek çatı altında. Her projeye markanızın hikâyesini dinleyerek başlıyoruz.</p>
+    </div>
+    <div class="services-grid">
+      <article class="svc reveal tilt">
+        <span class="svc-num">01</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="15" rx="2.5"/><path d="M2 7.5h20M8 22h8M12 18v4"/><circle cx="5" cy="5.3" r=".4" fill="currentColor"/></g></svg></div>
+        <h3>Web Sitesi Tasarımı</h3>
+        <p>Hızlı, mobil uyumlu ve arama motorlarında görünür kurumsal siteler ile açılış sayfaları.</p>
+        <ul><li>Kurumsal</li><li>Landing</li><li>SEO</li></ul>
+      </article>
+      <article class="svc reveal tilt featured" style="--d:.08s">
+        <span class="svc-num">02</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="3.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></g></svg></div>
+        <h3>UI/UX Tasarım</h3>
+        <p>Kullanıcı araştırması, akış ve arayüz tasarımı ile kolay kullanılan, sevilen dijital ürünler.</p>
+        <ul><li>Wireframe</li><li>Prototip</li><li>Tasarım sistemi</li></ul>
+      </article>
+      <article class="svc reveal tilt" style="--d:.16s">
+        <span class="svc-num">03</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="8" r="1.5"/></g></svg></div>
+        <h3>Sosyal Medya Tasarımı</h3>
+        <p>Instagram gönderileri, hikâyeler, reels kapakları ve kampanya görselleriyle tutarlı bir akış.</p>
+        <ul><li>Post</li><li>Story</li><li>Reels</li></ul>
+      </article>
+      <article class="svc reveal tilt" style="--d:.24s">
+        <span class="svc-num">04</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.6 8l6 .7-4.4 4.1 1.2 5.9L12 15.8l-5.4 2.9 1.2-5.9-4.4-4.1 6-.7z"/></g></svg></div>
+        <h3>Dijital Marka &amp; İçerik</h3>
+        <p>Logo, renk ve tipografi rehberi; marka dilinize uygun metin ve görsel içerik üretimi.</p>
+        <ul><li>Kimlik</li><li>Rehber</li><li>Metin</li></ul>
+      </article>
+      <article class="svc reveal tilt" style="--d:.32s">
+        <span class="svc-num">05</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5-5h-15z"/><path d="M4 9v11h16V9"/><path d="M9.5 20v-6h5v6"/></g></svg></div>
+        <h3>E-ticaret Vitrini</h3>
+        <p>Ürünlerinizi en iyi şekilde sergileyen, sepete giden yolu kısaltan online mağaza tasarımları.</p>
+        <ul><li>Ürün sayfası</li><li>Kampanya</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec about" id="hakkimizda" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <div class="reveal">
+        <span class="kicker">Hakkımızda</span>
+        <h2 class="sec-title" id="about-title">Her marka bir <em>vitrini</em> hak eder.</h2>
+      </div>
+      <p class="reveal" style="--d:.1s;margin-top:28px"><strong>Vitrin Medya</strong>, markaların dijital dünyadaki ilk izlenimini tasarlayan bir web ve dijital tasarım stüdyosudur. Bir mağaza vitrini nasıl yoldan geçeni içeri davet ediyorsa, biz de web sitenizi ve sosyal medya hesaplarınızı ziyaretçilerinizi müşteriye dönüştüren bir vitrine çeviriyoruz.</p>
+      <p class="reveal" style="--d:.15s">Estetiği işlevle buluşturuyor, her pikselin bir amacı olmasına özen gösteriyoruz.</p>
+      <div class="values">
+        <div class="value reveal" style="--d:.1s"><span class="vi"><svg aria-hidden="true"><use href="#i-star"/></svg></span><div><h4>Özgün tasarım</h4><p>Hazır şablon yok; markanıza özel, sıfırdan tasarım.</p></div></div>
+        <div class="value reveal" style="--d:.18s"><span class="vi"><svg aria-hidden="true"><use href="#i-check"/></svg></span><div><h4>Şeffaf süreç</h4><p>Her adımda sizi bilgilendirir, birlikte karar veririz.</p></div></div>
+        <div class="value reveal" style="--d:.26s"><span class="vi"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span><div><h4>Sonuç odaklı</h4><p>Güzel görünmek yetmez; tasarım işinize katkı sağlamalı.</p></div></div>
+      </div>
+    </div>
+    <!-- YER TUTUCU: Aşağıdaki sayılar örnektir. Gerçek değerlerle değiştirmek için data-count değerlerini düzenleyin. -->
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="stat-num"><span data-count="120">0</span><sup>+</sup></div>
+        <div class="stat-label">Tamamlanan proje</div>
+        <svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="none" stroke="#000" stroke-width="10"/></svg>
+      </div>
+      <div class="stat reveal" style="--d:.1s">
+        <div class="stat-num"><span data-count="80">0</span><sup>+</sup></div>
+        <div class="stat-label">Mutlu müşteri</div>
+      </div>
+      <div class="stat reveal" style="--d:.2s">
+        <div class="stat-num"><span data-count="5">0</span><sup>yıl</sup></div>
+        <div class="stat-label">Sektör deneyimi</div>
+      </div>
+      <div class="stat reveal" style="--d:.25s">
+        <div class="stat-num"><span data-count="350">0</span><sup>+</sup></div>
+        <div class="stat-label">Sosyal medya tasarımı</div>
+      </div>
+      <div class="stat reveal" style="--d:.3s">
+        <div class="stat-num"><span data-count="98">0</span><sup>%</sup></div>
+        <div class="stat-label">Müşteri memnuniyeti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="portfoy" aria-labelledby="gal-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker">Portföy</span>
+        <h2 class="sec-title" id="gal-title">Seçili <em>çalışmalarımız</em></h2>
+      </div>
+      <div class="filters reveal" role="group" aria-label="Projeleri filtrele" style="--d:.1s">
+        <button type="button" data-filter="all" aria-pressed="true">Tümü</button>
+        <button type="button" data-filter="web" aria-pressed="false">Web</button>
+        <button type="button" data-filter="uiux" aria-pressed="false">UI-UX</button>
+        <button type="button" data-filter="sosyal" aria-pressed="false">Sosyal Medya</button>
+      </div>
+    </div>
+    <!-- YER TUTUCU: Aşağıdaki 6 proje örnek görsellerdir (CSS ile çizildi). Gerçek proje görselleri ve isimleriyle değiştirin. -->
+    <div class="gallery" id="gallery" aria-live="polite">
+      <article class="tile wide reveal" data-cat="web" tabindex="0" aria-label="Kahve Durağı kurumsal web sitesi">
+        <div class="tile-art" style="background:linear-gradient(135deg,#FF9B10,#A46042)">
+          <div class="mock" style="inset:12% 8% -4% 8%">
+            <div class="mock-bar"><i></i><i></i><i></i></div>
+            <div class="mock-body" style="grid-template-columns:1.2fr 1fr;align-items:center">
+              <div style="display:grid;gap:9px"><div class="r" style="height:16px;width:85%;background:#1E1E1E"></div><div class="r" style="width:70%"></div><div class="r" style="width:55%"></div><div class="r" style="height:22px;width:40%;background:#FF9B10;border-radius:999px"></div></div>
+              <div class="big" style="height:120px;background:radial-gradient(circle at 50% 60%,#A46042 30%,#F4EDDA 31%)"></div>
+            </div>
+          </div>
+        </div>
+        <span class="tile-tag">Web</span>
+        <div class="tile-over"><span>Web Sitesi</span><h3>Kahve Durağı</h3></div>
+      </article>
+      <article class="tile reveal" data-cat="sosyal" tabindex="0" aria-label="Butik Lina Instagram tasarımları" style="--d:.08s">
+        <div class="tile-art" style="background:#1E1E1E">
+          <div class="post" style="width:46%;left:10%;top:16%;background:#FF9B10;color:#000;font-size:1.3rem;transform:rotate(-6deg)">YENİ<br>SEZON</div>
+          <div class="post" style="width:46%;right:8%;top:34%;background:#F4EDDA;color:#A46042;font-size:1.6rem;transform:rotate(5deg)">%30</div>
+        </div>
+        <span class="tile-tag">Sosyal Medya</span>
+        <div class="tile-over"><span>Instagram</span><h3>Butik Lina</h3></div>
+      </article>
+      <article class="tile reveal" data-cat="uiux" tabindex="0" aria-label="FitAdım mobil uygulama arayüzü" style="--d:.04s">
+        <div class="tile-art" style="background:linear-gradient(160deg,#F4EDDA,#EBD9B4)">
+          <div class="phone" style="left:16%;top:12%;transform:rotate(-8deg)"><div class="phone-in" style="background:#FFF"><i style="height:8px;width:60%;background:#1E1E1E"></i><i style="height:60px;background:linear-gradient(135deg,#FF9B10,#FFC266)"></i><i style="height:8px;background:#E8DFCB"></i><i style="height:8px;width:70%;background:#E8DFCB"></i><i style="height:30px;background:#1E1E1E"></i></div></div>
+          <div class="phone" style="right:16%;top:22%;transform:rotate(7deg)"><div class="phone-in" style="background:#1E1E1E"><i style="height:8px;width:50%;background:#FF9B10"></i><i style="height:50px;border-radius:50%;width:50px;margin:6px auto;border:6px solid #FF9B10"></i><i style="height:8px;background:#2F2F2F"></i><i style="height:8px;background:#2F2F2F"></i></div></div>
+        </div>
+        <span class="tile-tag">UI-UX</span>
+        <div class="tile-over"><span>Mobil Uygulama</span><h3>FitAdım</h3></div>
+      </article>
+      <article class="tile wide reveal" data-cat="web" tabindex="0" aria-label="Atölye Ahşap e-ticaret sitesi" style="--d:.08s">
+        <div class="tile-art" style="background:#A46042">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i></div>
+            <div class="mock-body" style="grid-template-columns:repeat(3,1fr)">
+              <div class="big" style="height:60px;background:#F4EDDA"></div><div class="big" style="height:60px;background:#FF9B10"></div><div class="big" style="height:60px;background:#F4EDDA"></div>
+              <div class="r"></div><div class="r"></div><div class="r"></div>
+              <div class="r" style="width:60%;background:#1E1E1E"></div><div class="r" style="width:60%;background:#1E1E1E"></div><div class="r" style="width:60%;background:#1E1E1E"></div>
+            </div>
+          </div>
+        </div>
+        <span class="tile-tag">Web</span>
+        <div class="tile-over"><span>E-ticaret</span><h3>Atölye Ahşap</h3></div>
+      </article>
+      <article class="tile wide reveal" data-cat="uiux" tabindex="0" aria-label="Randevum yönetim paneli arayüzü" style="--d:.16s">
+        <div class="tile-art" style="background:#2A2A2A">
+          <div class="mock" style="background:#1E1E1E">
+            <div class="mock-bar" style="background:#333"><i></i><i></i><i></i></div>
+            <div class="mock-body" style="grid-template-columns:.5fr 1.5fr">
+              <div style="display:grid;gap:7px;align-content:start"><div class="r" style="background:#FF9B10"></div><div class="r" style="background:#3A3A3A"></div><div class="r" style="background:#3A3A3A"></div><div class="r" style="background:#3A3A3A"></div></div>
+              <div style="display:flex;align-items:flex-end;gap:6px;height:90px"><i style="flex:1;height:40%;background:#A46042;border-radius:4px"></i><i style="flex:1;height:70%;background:#FF9B10;border-radius:4px"></i><i style="flex:1;height:55%;background:#A46042;border-radius:4px"></i><i style="flex:1;height:90%;background:#FF9B10;border-radius:4px"></i><i style="flex:1;height:65%;background:#F4EDDA;border-radius:4px"></i></div>
+            </div>
+          </div>
+        </div>
+        <span class="tile-tag">UI-UX</span>
+        <div class="tile-over"><span>Panel Arayüzü</span><h3>Randevum</h3></div>
+      </article>
+      <article class="tile reveal" data-cat="sosyal" tabindex="0" aria-label="Lezzet Mutfak sosyal medya kampanyası" style="--d:.24s">
+        <div class="tile-art" style="background:linear-gradient(135deg,#F4EDDA,#FFD9A0)">
+          <div class="post" style="width:34%;left:8%;top:20%;background:#1E1E1E;color:#FF9B10;font-size:1rem">MENÜ</div>
+          <div class="post" style="width:34%;left:33%;top:34%;background:#FF9B10;color:#000;font-size:1.05rem;z-index:1">LEZZET</div>
+          <div class="post" style="width:34%;right:8%;top:20%;background:#A46042;color:#FFF;font-size:1rem">%20</div>
+        </div>
+        <span class="tile-tag">Sosyal Medya</span>
+        <div class="tile-over"><span>Kampanya</span><h3>Lezzet Mutfak</h3></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi" id="yorumlar" aria-labelledby="testi-title">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center">
+      <div class="reveal">
+        <span class="kicker">Müşteri Yorumları</span>
+        <h2 class="sec-title" id="testi-title">Birlikte çalıştıklarımız <em>ne diyor?</em></h2>
+      </div>
+    </div>
+    <!-- ÖRNEK: Aşağıdaki 3 yorum örnek metinlerdir. Gerçek müşteri yorumlarıyla (izin alınarak) değiştirin. -->
+    <div class="slider reveal" role="region" aria-roledescription="carousel" aria-label="Müşteri yorumları">
+      <div class="slides" id="slides">
+        <figure class="slide active" role="group" aria-roledescription="slide" aria-label="1 / 3">
+          <svg class="quote-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 6C6.5 7.3 4.5 10 4.5 13.6V18h6v-6H7.6c.2-2 1.4-3.5 3.2-4.3zm9 0c-3.1 1.3-5.1 4-5.1 7.6V18h6v-6h-2.9c.2-2 1.4-3.5 3.2-4.3z"/></svg>
+          <blockquote>“Web sitemiz yenilendikten sonra online randevu talepleri neredeyse ikiye katlandı. Süreç boyunca her adımı bizimle paylaştılar.”</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">EY</span><span><b>Elif Y.</b><small>Güzellik Salonu Sahibi</small></span><span class="stars" aria-label="5 üzerinden 5 yıldız"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 / 3">
+          <svg class="quote-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 6C6.5 7.3 4.5 10 4.5 13.6V18h6v-6H7.6c.2-2 1.4-3.5 3.2-4.3zm9 0c-3.1 1.3-5.1 4-5.1 7.6V18h6v-6h-2.9c.2-2 1.4-3.5 3.2-4.3z"/></svg>
+          <blockquote>“Instagram hesabımız artık gerçekten bir vitrin gibi görünüyor. Tasarımlar markamızın ruhunu çok iyi yansıtıyor.”</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">MK</span><span><b>Murat K.</b><small>Kafe İşletmecisi</small></span><span class="stars" aria-label="5 üzerinden 5 yıldız"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></figcaption>
+        </figure>
+        <figure class="slide" role="group" aria-roledescription="slide" aria-label="3 / 3">
+          <svg class="quote-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.6 6C6.5 7.3 4.5 10 4.5 13.6V18h6v-6H7.6c.2-2 1.4-3.5 3.2-4.3zm9 0c-3.1 1.3-5.1 4-5.1 7.6V18h6v-6h-2.9c.2-2 1.4-3.5 3.2-4.3z"/></svg>
+          <blockquote>“Uygulamamızın arayüzünü baştan tasarladılar; kullanıcılarımızdan gelen geri bildirimler hiç bu kadar olumlu olmamıştı.”</blockquote>
+          <figcaption class="who"><span class="avatar" aria-hidden="true">SA</span><span><b>Selin A.</b><small>Girişim Kurucusu</small></span><span class="stars" aria-label="5 üzerinden 5 yıldız"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></figcaption>
+        </figure>
+      </div>
+      <div class="slider-ctrl">
+        <button class="arrow" id="prev" type="button" aria-label="Önceki yorum"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <div class="dots" id="dots" role="tablist" aria-label="Yorum seç">
+          <button type="button" role="tab" aria-selected="true" aria-label="1. yorum"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="2. yorum"></button>
+          <button type="button" role="tab" aria-selected="false" aria-label="3. yorum"></button>
+        </div>
+        <button class="arrow" id="next" type="button" aria-label="Sonraki yorum"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="iletisim" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="kicker">İletişim</span>
+        <h2 class="sec-title" id="contact-title">Vitrininizi birlikte <em>tasarlayalım.</em></h2>
+      </div>
+      <p class="sec-lead reveal" style="--d:.1s">Projenizi anlatın, size en kısa sürede dönüş yapalım. Bir telefon, bir mesaj kadar yakınız.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="cards">
+          <a class="ccard reveal" href="tel:+905356300443"><span class="ci"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><small>Telefon</small><b>0535 630 04 43</b></a>
+          <a class="ccard reveal" href="https://wa.me/905356300443" target="_blank" rel="noopener" style="--d:.08s"><span class="ci"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><small>WhatsApp</small><b>Hemen yazın</b></a>
+          <a class="ccard reveal" href="mailto:sedefcoskun66@gmail.com" style="--d:.16s"><span class="ci"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><small>E-posta</small><b>sedefcoskun66@gmail.com</b></a>
+          <a class="ccard reveal" href="https://instagram.com/vitrin_medya" target="_blank" rel="noopener" style="--d:.24s"><span class="ci"><svg aria-hidden="true"><use href="#i-ig"/></svg></span><small>Instagram</small><b>@vitrin_medya</b></a>
+        </div>
+        <div class="contact-note reveal" style="--d:.2s">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></svg>
+          <p>Mesajlarınıza genellikle aynı gün içinde dönüş yapıyoruz.</p>
+        </div>
+      </div>
+      <form class="cform reveal" id="cform" novalidate style="--d:.1s">
+        <h3>Proje Başlat</h3>
+        <p>Formu doldurun; e-posta uygulamanız bilgilerinizle hazır şekilde açılsın.</p>
+        <div class="row2">
+          <div class="field"><label for="f-ad">Adınız Soyadınız</label><input id="f-ad" name="ad" type="text" autocomplete="name" required placeholder="Örn. Ayşe Yılmaz"><span class="err">Lütfen adınızı yazın.</span></div>
+          <div class="field"><label for="f-mail">E-posta</label><input id="f-mail" name="eposta" type="email" autocomplete="email" required placeholder="ornek@mail.com"><span class="err">Geçerli bir e-posta adresi girin.</span></div>
+        </div>
+        <div class="field"><label for="f-konu">İlgilendiğiniz hizmet</label>
+          <select id="f-konu" name="konu">
+            <option>Web Sitesi Tasarımı</option><option>UI/UX Tasarım</option><option>Sosyal Medya Tasarımı</option><option>Dijital Marka &amp; İçerik</option><option>E-ticaret Vitrini</option><option>Diğer</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Mesajınız</label><textarea id="f-msg" name="mesaj" required placeholder="Projenizden kısaca bahsedin..."></textarea><span class="err">Lütfen kısa bir mesaj yazın.</span></div>
+        <button class="btn btn-primary" type="submit">Mesajı Gönder <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <p class="form-status" id="fstatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-big" aria-hidden="true">Vitrin Medya</div>
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo" aria-label="Vitrin Medya, başa dön">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h3.4L12 16.2 16.6 5H20l-6.5 15h-3z" fill="#FF9B10"/></svg></span>
+          <span>Vitrin<b>Medya</b></span>
+        </a>
+        <p>Markanızı dijital vitrine taşıyoruz. Web sitesi, UI/UX ve sosyal medya tasarımında yaratıcı çözüm ortağınız.</p>
+        <div class="socials">
+          <a href="https://instagram.com/vitrin_medya" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+          <a href="https://wa.me/905356300443" target="_blank" rel="noopener" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a href="mailto:sedefcoskun66@gmail.com" aria-label="E-posta"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="tel:+905356300443" aria-label="Telefon"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Menü</h4>
+        <ul><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#hakkimizda">Hakkımızda</a></li><li><a href="#portfoy">Portföy</a></li><li><a href="#yorumlar">Yorumlar</a></li><li><a href="#iletisim">İletişim</a></li></ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul><li><a href="tel:+905356300443">0535 630 04 43</a></li><li><a href="mailto:sedefcoskun66@gmail.com">sedefcoskun66@gmail.com</a></li><li><a href="https://instagram.com/vitrin_medya" target="_blank" rel="noopener">@vitrin_medya</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Vitrin Medya. Tüm hakları saklıdır.</span>
+      <a href="#top" class="to-top">Başa dön ↑</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/905356300443" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* Nav scroll state + progress bar + floating WA */
+  var nav = $('#nav'), bar = $('.progress'), wa = $('#waFloat');
+  function onScroll(){
+    var y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    nav.classList.toggle('scrolled', y > 30);
+    bar.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+    wa.classList.toggle('show', y > innerHeight * .7);
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* Mobile menu */
+  var burger = $('#burger'), links = $('#navLinks'), scrim = $('#scrim');
+  function setMenu(open){
+    links.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+    if(open){ var f = links.querySelector('a'); f && f.focus(); }
+  }
+  burger.addEventListener('click', function(){ setMenu(!links.classList.contains('open')); });
+  scrim.addEventListener('click', function(){ setMenu(false); });
+  $$('a', links).forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && links.classList.contains('open')){ setMenu(false); burger.focus(); }
+    if(e.key === 'Tab' && links.classList.contains('open')){
+      var items = $$('a', links).concat([burger]);
+      var first = items[0], last = items[items.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  addEventListener('resize', function(){ if(innerWidth > 860) setMenu(false); });
+
+  /* Active link on scroll */
+  var navAnchors = $$('.nav-links a:not(.btn)');
+  if('IntersectionObserver' in window){
+    var secObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          navAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    $$('main section[id]').forEach(function(s){ secObs.observe(s); });
+  }
+
+  /* Counters */
+  function countUp(el){
+    var target = +el.getAttribute('data-count');
+    if(reduce){ el.textContent = target; return; }
+    var start = null, dur = 1800;
+    function step(t){
+      if(!start) start = t;
+      var p = Math.min((t - start) / dur, 1), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(target * e);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* Reveal on scroll */
+  var revealEls = $$('.reveal');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          $$('[data-count]', en.target).forEach(countUp);
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+    $$('[data-count]').forEach(countUp);
+  }
+
+  /* Hero mouse parallax */
+  if(finePointer && !reduce){
+    var layers = $$('.hero [data-depth]'), hero = $('.hero'), raf = null, mx = 0, my = 0;
+    hero.addEventListener('mousemove', function(e){
+      mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5;
+      if(!raf) raf = requestAnimationFrame(function(){
+        layers.forEach(function(l){
+          var d = +l.getAttribute('data-depth');
+          var base = l.classList.contains('window') ? ' rotate(-3deg)' : '';
+          l.style.transform = 'translate3d(' + (mx * d) + 'px,' + (my * d) + 'px,0)' + base;
+        });
+        raf = null;
+      });
+    });
+  }
+
+  /* Card tilt */
+  if(finePointer && !reduce){
+    $$('.tilt').forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = 'perspective(800px) translateY(-8px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 8) + 'deg)';
+      });
+      card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  /* Gallery filter */
+  var filterBtns = $$('.filters button'), tiles = $$('#gallery .tile');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      filterBtns.forEach(function(b){ b.setAttribute('aria-pressed', b === btn); });
+      tiles.forEach(function(t){
+        var show = f === 'all' || t.getAttribute('data-cat') === f;
+        if(show){
+          t.classList.remove('hide');
+          t.classList.add('fade','in');
+          requestAnimationFrame(function(){ requestAnimationFrame(function(){ t.classList.remove('fade'); }); });
+        } else {
+          t.classList.add('hide');
+        }
+      });
+      $('#gallery').classList.toggle('filtered', f !== 'all');
+    });
+  });
+
+  /* Testimonials slider */
+  var slides = $$('#slides .slide'), dots = $$('#dots button'), cur = 0, timer = null, slider = $('.slider');
+  function go(i){
+    if(i === cur) return;
+    var old = slides[cur];
+    old.classList.remove('active'); old.classList.add('leaving');
+    setTimeout(function(){ old.classList.remove('leaving'); }, 700);
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots.forEach(function(d,k){ d.setAttribute('aria-selected', k === cur); d.tabIndex = k === cur ? 0 : -1; });
+  }
+  function start(){ if(!reduce){ stop(); timer = setInterval(function(){ go(cur + 1); }, 6000); } }
+  function stop(){ clearInterval(timer); }
+  $('#next').addEventListener('click', function(){ go(cur + 1); start(); });
+  $('#prev').addEventListener('click', function(){ go(cur - 1); start(); });
+  dots.forEach(function(d,k){
+    d.tabIndex = k === 0 ? 0 : -1;
+    d.addEventListener('click', function(){ go(k); start(); });
+    d.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        e.preventDefault(); go(cur + (e.key === 'ArrowRight' ? 1 : -1)); dots[cur].focus(); start();
+      }
+    });
+  });
+  slider.addEventListener('mouseenter', stop); slider.addEventListener('mouseleave', start);
+  slider.addEventListener('focusin', stop); slider.addEventListener('focusout', start);
+  /* swipe */
+  var sx = null;
+  slider.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  slider.addEventListener('touchend', function(e){
+    if(sx === null) return; var dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40){ go(cur + (dx < 0 ? 1 : -1)); start(); } sx = null;
+  });
+  start();
+
+  /* Contact form -> mailto */
+  var form = $('#cform'), status = $('#fstatus');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ad = form.ad, mail = form.eposta, msg = form.mesaj, ok = true;
+    [[ad, ad.value.trim().length > 1],[mail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())],[msg, msg.value.trim().length > 2]].forEach(function(p){
+      p[0].closest('.field').classList.toggle('invalid', !p[1]);
+      p[0].setAttribute('aria-invalid', !p[1]);
+      if(!p[1] && ok){ p[0].focus(); ok = false; }
+    });
+    if(!ok){ status.textContent = 'Lütfen işaretli alanları kontrol edin.'; return; }
+    var subject = 'Proje Talebi: ' + form.konu.value + ' - ' + ad.value.trim();
+    var body = 'Ad Soyad: ' + ad.value.trim() + '\nE-posta: ' + mail.value.trim() + '\nHizmet: ' + form.konu.value + '\n\nMesaj:\n' + msg.value.trim();
+    window.location.href = 'mailto:sedefcoskun66@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    status.textContent = 'E-posta uygulamanız açılıyor. Açılmazsa sedefcoskun66@gmail.com adresine doğrudan yazabilirsiniz.';
+  });
+  $$('input,textarea', form).forEach(function(el){
+    el.addEventListener('input', function(){ el.closest('.field').classList.remove('invalid'); el.removeAttribute('aria-invalid'); });
+  });
+
+  /* Custom cursor (desktop only) */
+  if(finePointer && !reduce){
+    document.body.classList.add('has-cursor');
+    var c = $('.cursor'), dot = $('.cursor-dot'), cx = innerWidth/2, cy = innerHeight/2, tx = cx, ty = cy;
+    addEventListener('mousemove', function(e){ document.body.classList.add('cursor-on'); tx = e.clientX; ty = e.clientY; dot.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)'; }, {passive:true});
+    (function loop(){ cx += (tx - cx) * .18; cy += (ty - cy) * .18; c.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)'; requestAnimationFrame(loop); })();
+    $$('a,button,.tile,input,textarea,select').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ c.classList.add('hover'); });
+      el.addEventListener('mouseleave', function(){ c.classList.remove('hover'); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
