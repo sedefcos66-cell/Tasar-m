@@ -11,6 +11,11 @@
 <meta property="og:site_name" content="Vitrin Medya">
 <meta property="og:title" content="Vitrin Medya | Markanızı dijital vitrine taşıyoruz">
 <meta property="og:description" content="Web sitesi tasarımı, UI/UX, sosyal medya tasarımı ve dijital içerik. Markanız için göz alıcı bir dijital vitrin.">
+<meta property="og:url" content="https://sedefcos66-cell.github.io/Tasar-m/">
+<meta property="og:image" content="https://sedefcos66-cell.github.io/Tasar-m/logo.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Vitrin Medya logosu">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E1E1E'/%3E%3Cpath d='M16 18h8l8 22 8-22h8L36 48h-8z' fill='%23FF9B10'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,11 +66,9 @@ p{margin:0}
 .nav.scrolled{padding:10px 0}
 .nav.scrolled::before{opacity:1}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.03em;color:var(--antrasit)}
-.logo-mark{width:38px;height:38px;border-radius:11px;background:var(--antrasit);display:grid;place-items:center;flex:none;position:relative;overflow:hidden}
-.logo-mark::after{content:"";position:absolute;inset:auto -6px -6px auto;width:18px;height:18px;border-radius:50%;background:var(--kahve);opacity:.6}
-.logo-mark svg{width:22px;height:22px;position:relative;z-index:1}
-.logo b{color:var(--kahve);font-weight:700}
+.logo{display:inline-flex;align-items:center;text-decoration:none;flex:none}
+.logo img{display:block;width:58px;height:58px;transition:width .4s var(--ease),height .4s var(--ease)}
+.nav.scrolled .logo img{width:48px;height:48px}
 .nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
 .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 14px;border-radius:999px;transition:background .25s,color .25s}
 .nav-links a:hover,.nav-links a.active{background:rgba(255,155,16,.18)}
@@ -304,9 +307,7 @@ form.cform{background:var(--beyaz);border-radius:28px;padding:clamp(24px,4vw,40p
 footer{background:var(--siyah);color:var(--krem);padding:80px 0 32px;margin-top:0;position:relative;overflow:hidden}
 .foot-big{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,11.5vw,10.5rem);line-height:.9;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,155,16,.45);white-space:nowrap;margin-bottom:56px;user-select:none}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
-footer .logo{color:var(--krem)}
-footer .logo-mark{background:var(--antrasit-2)}
-footer .logo b{color:var(--turuncu)}
+footer .logo img{width:112px;height:112px}
 .foot-grid p{color:#B8AF9E;margin-top:16px;max-width:340px;font-size:.98rem}
 .foot-grid h4{font-size:1rem;margin-bottom:16px;color:var(--turuncu)}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
@@ -428,8 +429,7 @@ footer .logo b{color:var(--turuncu)}
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Vitrin Medya ana sayfa">
-      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h3.4L12 16.2 16.6 5H20l-6.5 15h-3z" fill="#FF9B10"/></svg></span>
-      <span>Vitrin<b>Medya</b></span>
+      <img src="logo.png" alt="Vitrin Medya" width="58" height="58">
     </a>
     <nav aria-label="Ana menü">
       <ul class="nav-links" id="navLinks">
@@ -765,8 +765,7 @@ footer .logo b{color:var(--turuncu)}
     <div class="foot-grid">
       <div>
         <a href="#top" class="logo" aria-label="Vitrin Medya, başa dön">
-          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h3.4L12 16.2 16.6 5H20l-6.5 15h-3z" fill="#FF9B10"/></svg></span>
-          <span>Vitrin<b>Medya</b></span>
+          <img src="logo.png" alt="Vitrin Medya" width="112" height="112" loading="lazy">
         </a>
         <p>Markanızı dijital vitrine taşıyoruz. Web sitesi, UI/UX ve sosyal medya tasarımında yaratıcı çözüm ortağınız.</p>
         <div class="socials">
